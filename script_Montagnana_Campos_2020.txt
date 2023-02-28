@@ -1,0 +1,34 @@
+## Paula Montagnana
+
+## From Montagnana, PC & Campos, MJO (2020), Ruderal Plants Providing Bees Diversity 
+# on Rural Properties, Sociobiology, Doi: 10.13102/sociobiology.v67i3.4837
+
+# Package
+require(vegan)
+
+setwd("C:\\Users\\asusp\\Dropbox\\ARTIGO_MESTRADO")
+
+# Jaccard's dissimilarity index
+
+jac<-read.table("dissi_jaccard.txt",head=T)
+
+vegdist(jac,method="jaccard",binary=TRUE)
+
+# Average taxonomic breadth, (Δ+; Clarke & Warwick, 1998; Andersson et al., 2013)
+
+### Table with abundance data for each bee and wasp species by landscape
+comm_bee<-read.table("comm_bee.txt", head=T,sep="\t")
+
+### Table with the taxonomic information of bee and wasp communities (separately)
+### Order, Family, Genus and Species
+dis_bee<-read.table("dis_bee.txt", head=T,sep="\t")
+
+#### The community table cannot have a column identifying landscapes;
+#### Therefore, this function removed the 1st column (landscapes)
+comm_bee_1<-comm_bee[,-1]
+
+
+taxbee<-taxa2dist(dis_bee, varstep=T)
+
+diver.bee<-taxondive(comm_bee_1,taxbee)
+diver.bee
