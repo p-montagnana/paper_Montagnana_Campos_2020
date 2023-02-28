@@ -1,7 +1,7 @@
 # Paula Montagnana <br>
 ## 2020 08 D05 <br>
 
-Scripts in R language of the analyzes that compose the article Montagnana et al. (2021).
+Scripts in R language of the analyzes that compose the paper Montagnana, PC & Campos, MJO (2020).
 - Taxonomic diversity
 - Jaccard's dissimilarity index
 - Response variables = species richness (Chao 1), Shannon diversity index (H'), Simpson dominance index (D)
